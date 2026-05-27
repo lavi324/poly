@@ -23,7 +23,6 @@ services:
       - VOTE_COST=1
       - CREATE_COST=20
       - MAX_TITLE_LEN=40
-      - SERVER_IP=10.100.102.26
       - ADMIN_TOKEN=keves-admin-2026
     volumes:
       - type: bind
