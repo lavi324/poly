@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Keves Hakvasim - Polymarket</title>
+<meta name="description" content="Keves Hakvasim - Polymarket. סקרי הימורים בנקודות." />
+<link rel="icon" type="image/png" href="/sheep.png" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<div class="bg-sheep bg-sheep-1"></div>
+<div class="bg-sheep bg-sheep-2"></div>
+<div class="bg-sheep bg-sheep-3"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <img src="/sheep.jpg" alt="logo" class="logo logo-md gradient-ring" />
+    <div class="brand-text">
+      <div class="brand-title">Keves Hakvasim</div>
+      <div class="brand-sub">Polymarket · כבש הכבשים</div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <img src="/sheep.jpg" class="logo logo-xl hero-logo float" alt="" />
+    <div class="hero-text">
+      <h1>שוק התחזיות של <span class="grad-text">הכבשים</span></h1>
+      <p>צרו סקר, הצביעו, ותראו מה הכבשים חושבים באמת</p>
+    </div>
+    <img src="/sheep.jpg" class="logo logo-lg hero-logo-2 white float-slow" alt="" />
+  </div>
+</section>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="card price-card">
+      <div class="card-head price-head">
+        <h3>מחירון</h3>
+      </div>
+      <ul class="price-list">
+        <li>
+          <span class="price-label">
+            <img src="/sheep.jpg" class="logo logo-xs" alt="" />
+            יצירת סקר חדש
+          </span>
+          <span class="price-val">20 נק'</span>
+        </li>
+        <li>
+          <span class="price-label">
+            <img src="/sheep.jpg" class="logo logo-xs white" alt="" />
+            הצבעה בודדת
+          </span>
+          <span class="price-val">1 נק'</span>
+        </li>
+      </ul>
+      <div class="price-foot">
+        הנקודות חוזרות ל-<b id="baseAmount">100</b> בכל יום ראשון בבוקר
+      </div>
+    </div>
+
+    <div class="card mini-balance">
+      <div class="mini-label">היתרה שלך</div>
+      <div class="mini-points"><span id="points2">…</span> נק'</div>
+      <button id="newPollBtn2" class="primary-btn full">+ סקר חדש</button>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <div class="sortbar">
+      <div class="sort-group">
+        <button class="chip active" data-sort="new">חדשים</button>
+        <button class="chip" data-sort="hot">חמים</button>
+        <button class="chip" data-sort="rich">הכי הרבה נקודות</button>
+      </div>
+      <div class="sort-info">לחץ על סקר כדי להמר</div>
+    </div>
+
+    <main id="polls" class="polls"></main>
+  </div>
+</div>
+
+<footer class="footer">
+  <img src="/sheep.jpg" class="logo logo-sm" alt="" />
+  <div>Keves Hakvasim</div>
+  <img src="/sheep.jpg" class="logo logo-sm white" alt="" />
+</footer>
+
+<!-- New poll modal -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card">
+    <button class="close" id="closeModal" aria-label="סגור">×</button>
+    <div class="modal-head">
+      <img src="/sheep.jpg" class="logo logo-md gradient-ring" alt="" />
+      <h2>סקר חדש</h2>
+      <span class="cost-badge">עלות: 20 נק'</span>
+    </div>
+
+    <form id="pollForm" class="form">
+      <label>כותרת <span class="muted" id="titleCount">0/40</span>
+        <input id="f_title" maxlength="40" placeholder='כמה פעמים נועם יגיד את המילה "טראמפ בפרק?"' required autocomplete="off" />
+      </label>
+
+      <label>סוג סקר
+        <div class="type-toggle">
+          <button type="button" class="type-btn active" data-type="binary">כן / לא</button>
+          <button type="button" class="type-btn" data-type="multi">בחירה מרובה</button>
+        </div>
+      </label>
+
+      <div id="multiOptions" hidden>
+        <label>אפשרויות (2 עד 10)</label>
+        <div id="optionsList" class="options-list"></div>
+        <button type="button" id="addOpt" class="ghost-btn">+ הוסף אפשרות</button>
+      </div>
+
+      <div class="modal-foot">
+        <button type="button" class="ghost-btn" id="cancelBtn">ביטול</button>
+        <button type="submit" class="primary-btn" id="submitBtn">צור סקר · 20 נק'</button>
+      </div>
+      <div class="error" id="formError"></div>
+    </form>
+  </div>
+</div>
+
+<!-- Poll detail modal -->
+<div class="modal" id="detailModal" hidden>
+  <div class="modal-card" id="detailCard"></div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="/app.js"></script>
+</body>
+</html>
